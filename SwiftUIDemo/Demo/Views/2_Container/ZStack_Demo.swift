@@ -4,9 +4,16 @@ struct ZStack_Demo: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(.yellow)
+                .fill(.pink)
             Image(systemName: "star")
-                .foregroundStyle(.black)
+                .foregroundStyle(.green)
+        }
+        
+        ZStack {
+            Circle()
+                .fill(.blue)
+            Image(systemName: "heart")
+                .foregroundStyle(.yellow)
         }
     }
 }

@@ -3,13 +3,13 @@ import SwiftUI
 struct Circle_Demo: View {
     var body: some View {
         Circle()
-            .fill(Color.red)
+            .fill(Color.yellow)
 
         Circle()
-            .frame(width: 40, height: 40)
+            .frame(width: 50, height: 50)
 
         Circle()
-            .stroke(Color.red, lineWidth: 10)
+            .stroke(Color.red, lineWidth: 12)
     }
 }
 
