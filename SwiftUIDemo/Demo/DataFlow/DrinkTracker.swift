@@ -13,13 +13,14 @@ struct DrinkTracker: View { // struct 預設為 internal，可以寫成internal 
     }
 
     var body: some View { // 先看body，some View 是 View的子類
-        let _ = Self._printChanges(); // 在console (CMD + shift + y ，可以打開console) 看看有沒有印出，一種除錯（debug）技巧
+        // let _ = Self._printChanges(); // 在console (CMD + shift + y ，可以打開console) 看看有沒有印出，一種除錯（debug）技巧
         VStack { // 垂直
             // computer properties
             Text("Total number of drinks: \(totalCount)")
             WaterTracker(count: $waterCount)
             CoffeeTracker(count: $coffeeCount)
             BeerTracker(count: $beerCount)
+            Spacer() // 把資料置頂排列
         }
         .padding()
     }
@@ -41,6 +42,7 @@ struct WaterTracker: View {
     @Binding var count: Int // @Binding 可以把外面的值同步到裡面
 
     var body: some View {
+        let _ = Self._printChanges();
         HStack {
             Text("^[\(count) glass](inflect: true) of water")
             Stepper("", value: $count)
