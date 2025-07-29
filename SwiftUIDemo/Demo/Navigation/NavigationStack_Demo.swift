@@ -2,15 +2,41 @@ import SwiftUI
 
 struct NavigationStack_Demo: View {
     var body: some View {
-        NavigationStack {
+        NavigationStack { // 外面包一層NavigationStack
             List {
-                NavigationLink(value: "Detail") {
+                NavigationLink(value: 1) { // 連結
                     Text("Show Detail")
                 }
+                NavigationLink(value: 2) {
+                    Text("Show Price 💰")
+                }
+                NavigationLink(value: 3) {
+                    Text("Show Sport 🚴🏻")
+                }
+                NavigationLink(value: 4) {
+                    Text("Show Animal 🐯")
+                }
+                NavigationLink(value: 5) {
+                    Text("Show Food 🍔")
+                }
+                
             }
             .navigationTitle("Actions")
-            .navigationDestination(for: String.self) { value in
-                Text("Detail View")
+            .navigationDestination(for: Int.self) { value in
+                if value == 1 {
+                    VStack {
+                        Image(systemName: "books.vertical")
+                            .font(.system(size: 60)) // 指定圖片大小
+                            .foregroundColor(.blue)  // 改顏色
+                        Text("Detail View")
+                    }
+                } else if value == 2 {
+                    Text("🏦 銀行")
+                } else if value == 3 {
+                    Text("🐒🦘🦛 動物園")
+                } else {
+                    Text("雜項")
+                }
             }
         }
     }

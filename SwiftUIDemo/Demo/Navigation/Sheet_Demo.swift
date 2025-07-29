@@ -16,6 +16,8 @@ struct Sheet_Demo: View {
             Text("Detail")
                 .presentationDetents([.medium, .fraction(0.33)])
                 .presentationDragIndicator(.visible)
+               // .presentationDragIndicator(.hidden) // 使用.hidden就看不到拖動的槓槓
+//                .presentationDragIndicator(.automatic)
         }
     }
 }
