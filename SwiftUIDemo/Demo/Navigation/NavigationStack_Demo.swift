@@ -37,8 +37,6 @@ struct NavigationStack_Demo: View {
                             .font(.system(size: 60)) // 指定圖片大小
                             .foregroundColor(.green)  // 改顏色
                     }
-                    
-                    
                 } else if value == 3 {
                     Text("🐒🦘🦛 動物園")
                 } else {
@@ -67,7 +65,7 @@ struct NavigationStack_Demo2: View {
             .navigationTitle("Actions")
             .navigationDestination(for: String.self) { value in
                 VStack {
-                    Text("Detail View")
+                    Text("Detail View" + "，目前第幾層: \(path.count)")
 
                     Button("Push") {
                         path.append("Detail")
@@ -81,6 +79,10 @@ struct NavigationStack_Demo2: View {
                 }
             }
         }
+        // 可以打開console看到目前第幾層
+        .onChange(of: path) { newPath in
+                    print("目前第幾層: \(newPath.count)")
+                }
     }
 }
 
