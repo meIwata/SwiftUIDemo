@@ -8,7 +8,7 @@ struct NavigationStack_Demo: View {
                     Text("Show Detail")
                 }
                 NavigationLink(value: 2) {
-                    Text("Show Price 💰")
+                    Text("Show Mailbox 📬")
                 }
                 NavigationLink(value: 3) {
                     Text("Show Sport 🚴🏻")
@@ -31,7 +31,14 @@ struct NavigationStack_Demo: View {
                         Text("Detail View")
                     }
                 } else if value == 2 {
-                    Text("🏦 銀行")
+                    HStack{
+                        Text("寄信")
+                        Image(systemName: "envelope.badge.person.crop")
+                            .font(.system(size: 60)) // 指定圖片大小
+                            .foregroundColor(.green)  // 改顏色
+                    }
+                    
+                    
                 } else if value == 3 {
                     Text("🐒🦘🦛 動物園")
                 } else {
