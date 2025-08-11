@@ -6,6 +6,26 @@ class CounterModel {
     // 兩個屬性：text（字串）和 count（整數）
     var text: String = "Hello, World!"
     var count: Int = 0
+    
+    func test(){
+        var text: String = "" // 有佔記憶體
+        text = "ABC"
+        if text == ""{
+            
+        }
+       
+        var text2: String? = nil // 空的，沒有佔記憶體。 String?是代表這個型別是Optional（可選型別）
+        // Optional 是一種「有值或沒值」的包裝型別
+        
+        text2 = "ABC"
+        if text2 == nil {
+            
+        }
+        if let text2 = text2 {
+            
+        }
+        
+    }
 }
 
 struct BindableCounter: View {
