@@ -15,10 +15,10 @@ struct Counter: View {
 }
 
 struct ModelCounter: View { // 這個 View 直接持有一個 Model 實例
-    var model: Model // 傳 reference（傳址）
+    @Bindable var model: Model // @Bindable 宣告在 struct 屬性（建議用法），，SwiftUI 可以自動追蹤這個 model 的屬性變化，並讓 View 在 model 更新時自動刷新
 
     var body: some View {
-        @Bindable var model = model
+//        @Bindable var model = model // @Bindable 放在 body（區域變數，不推薦），這樣宣告也只是產生一個新的區域變數，和 View 的狀態/綁定完全無關，也不會有自動刷新效果。
         
         Button("Set to 100") {
             model.count = 100 // 按下按鈕時，把 model.count 直接設為 100
