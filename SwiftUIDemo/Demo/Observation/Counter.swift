@@ -49,12 +49,24 @@ struct CounterView: View {
         Divider()
 
         ModelCounter(model: model) // model 是 reference。如果你在 ModelCounter 裡改了 model.count，外部那個 model.count 也會被改變
+            .onAppear(perform: onApear)
+    }
+    
+}
+
+// 用extension包起來，就可以拆成幾格部分，也可以把這個放在其他檔案裡面
+// CounterView+Lifecycle.swift
+extension CounterView{
+    func onApear(){
+        
     }
 }
 
 @Observable // 右鍵可以expand marco
 class Model { // class 宣告出來之後，你可以用 Model() 產生「物件」
+//    @ObservationTracked
     var count: Int = 0
+    @ObservationIgnored
     var name: String = "" // 新增一個字串屬性
 }
 
