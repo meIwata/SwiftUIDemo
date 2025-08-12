@@ -16,9 +16,11 @@ struct Drag_Demo: View {
                         dragOffset = value.translation
                     }
                     .onEnded { value in
-                        position.width += value.translation.width
-                        position.height += value.translation.height
-                        dragOffset = .zero
+//                        position.width += value.translation.width
+//                        position.height += value.translation.height
+                        withAnimation(.linear(duration: 1)){
+                            dragOffset = .zero
+                        }
                     }
             )
             .animation(.spring(), value: position)
