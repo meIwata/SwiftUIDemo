@@ -49,5 +49,5 @@ struct Books_Demo: View {
 
 #Preview {
     Books_Demo()
-        .modelContainer(for: SwiftBook.self)
+        .modelContainer(for: SwiftBook.self) // 不會永久存刷新之後就變預設
 }
