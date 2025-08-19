@@ -103,7 +103,7 @@ struct SwiftDataDemo: View {
 }
 
 struct BookLibraryApp: View {
-    @Query private var books: [Book]
+    @Query private var books: [Book] // 查詢所有書
     @Environment(\.modelContext) private var modelContext
     @State private var showingAddBook = false
     @State private var searchText = ""
